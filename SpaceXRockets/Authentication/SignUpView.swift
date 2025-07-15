@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AuthenticationView: View {
+struct SignUpView: View {
     @StateObject var viewModel = AuthenticationViewModel()
     
     var body: some View {
@@ -61,5 +61,5 @@ struct AuthenticationView: View {
 }
 
 #Preview {
-    AuthenticationView()
+    SignUpView()
 }
