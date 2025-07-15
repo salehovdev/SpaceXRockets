@@ -35,6 +35,22 @@ struct AuthenticationView: View {
                         .clipShape(.rect(cornerRadius: 10))
                 }
                 
+                HStack {
+                    Spacer()
+                    Text("Do you have an account?")
+                        .foregroundStyle(.gray)
+                    NavigationLink {
+                        
+                    } label: {
+                        Text("Sign In")
+                            .font(.headline)
+                    }
+
+                    
+                    Spacer()
+                }
+                .padding()
+                
                 Spacer()
             }
             .padding()
