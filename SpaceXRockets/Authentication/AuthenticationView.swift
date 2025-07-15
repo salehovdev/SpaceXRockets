@@ -39,6 +39,7 @@ struct AuthenticationView: View {
             }
             .padding()
             .navigationTitle("Welcome to SpaceXRockets")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
