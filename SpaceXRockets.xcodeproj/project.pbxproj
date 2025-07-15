@@ -11,10 +11,12 @@
 		5707EBDB2E26C79F00D44F10 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5707EBDA2E26C79F00D44F10 /* FirebaseCore */; };
 		5707EBDE2E26C86D00D44F10 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5707EBDD2E26C86D00D44F10 /* GoogleSignIn */; };
 		5707EBE02E26C86D00D44F10 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5707EBDF2E26C86D00D44F10 /* GoogleSignInSwift */; };
+		5707EBF52E26CECF00D44F10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5707EBF42E26CECF00D44F10 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5707EBC92E26C64200D44F10 /* SpaceXRockets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXRockets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5707EBF42E26CECF00D44F10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -46,6 +48,7 @@
 				5707EBCB2E26C64200D44F10 /* SpaceXRockets */,
 				5707EBE72E26C89F00D44F10 /* Frameworks */,
 				5707EBCA2E26C64200D44F10 /* Products */,
+				5707EBF42E26CECF00D44F10 /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5707EBF52E26CECF00D44F10 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

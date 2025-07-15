@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>415132722242-j206smfms0bu5f0nt0qvuhcr4g5315rn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.415132722242-j206smfms0bu5f0nt0qvuhcr4g5315rn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyApIFwZV0haLzgHH2HtgdS5HI2g1_UF6lw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>415132722242</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.fuadsalehov.SpaceXRockets</string>
+	<key>PROJECT_ID</key>
+	<string>spacexrockets-99251</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spacexrockets-99251.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:415132722242:ios:789adf78280bee0ba5b9db</string>
+</dict>
+</plist>
