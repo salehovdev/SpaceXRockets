@@ -8,6 +8,8 @@
 import Foundation
 
 @MainActor
-class AuthenticationViewModel: ObservableObject {
+final class AuthenticationViewModel: ObservableObject {
     
+    @Published var email = ""
+    @Published var password = ""
 }
