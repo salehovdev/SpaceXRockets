@@ -28,6 +28,7 @@ struct SignUpView: View {
                     Task {
                         do {
                             try await viewModel.signUp()
+                            showSignUpView = false
                         } catch {
                             print(error.localizedDescription)
                         }
