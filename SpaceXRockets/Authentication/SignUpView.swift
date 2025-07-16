@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     @StateObject var viewModel = AuthenticationViewModel()
+    @Binding var showSignUpView: Bool
     
     var body: some View {
         NavigationStack {
@@ -61,5 +62,5 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView()
+    SignUpView(showSignUpView: .constant(false))
 }
