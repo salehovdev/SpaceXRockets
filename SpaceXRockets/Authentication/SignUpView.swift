@@ -25,7 +25,13 @@ struct SignUpView: View {
                     .clipShape(.rect(cornerRadius: 10))
                 
                 Button {
-                    viewModel.signUp()
+                    Task {
+                        do {
+                            try await viewModel.signUp()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
                 } label: {
                     Text("Sign up")
                         .font(.headline)
