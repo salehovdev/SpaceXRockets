@@ -19,7 +19,7 @@ struct RootView: View {
             self.showSignUpView = user == nil
         }
         .fullScreenCover(isPresented: $showSignUpView) {
-            SignUpView()
+            SignUpView(showSignUpView: $showSignUpView)
         }
     }
 }
