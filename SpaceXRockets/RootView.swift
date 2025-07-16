@@ -14,6 +14,10 @@ struct RootView: View {
         ZStack {
             Text("Rocket's List View")
         }
+        .onAppear {
+            let user = try? AuthenticationManager.shared.getUser()
+            self.showSignUpView = user == nil
+        }
         .fullScreenCover(isPresented: $showSignUpView) {
             SignUpView()
         }
