@@ -24,7 +24,7 @@ struct SignUpView: View {
                     .clipShape(.rect(cornerRadius: 10))
                 
                 Button {
-                    
+                    viewModel.signUp()
                 } label: {
                     Text("Sign up")
                         .font(.headline)
