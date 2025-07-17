@@ -33,6 +33,10 @@ final class AuthenticationViewModel: ObservableObject {
         try await AuthenticationManager.shared.signIn(email: email, password: password)
     }
     
+    func logOut() throws {
+        try AuthenticationManager.shared.signOut()
+    }
+    
     func signInGoogle() async throws {
         guard let topVC = Utilities.shared.topViewController() else {
             throw AuthError.userError

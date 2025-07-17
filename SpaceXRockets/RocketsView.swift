@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct RocketsView: View {
+    @StateObject var authViewModel = AuthenticationViewModel()
+    @Binding var showSignUpView: Bool
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -15,7 +18,16 @@ struct RocketsView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    
+                    Button("Log out") {
+                        Task {
+                            do {
+                                try authViewModel.logOut()
+                                showSignUpView = true
+                            } catch {
+                                print(error.localizedDescription)
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -24,5 +36,5 @@ struct RocketsView: View {
 }
 
 #Preview {
-    RocketsView()
+    RocketsView(showSignUpView: .constant(false))
 }

@@ -29,6 +29,10 @@ final class AuthenticationManager {
         return UserDataModel(user: userResult.user)
     }
     
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+    
     func getUser() throws -> UserDataModel {
         guard let user = Auth.auth().currentUser else { throw AuthError.userError }
         return UserDataModel(user: user)
