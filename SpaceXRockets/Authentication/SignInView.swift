@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignInView: View {
     @StateObject var viewModel = AuthenticationViewModel()
+    @Binding var showSignUpView: Bool
     
     var body: some View {
         NavigationStack {
@@ -24,7 +25,14 @@ struct SignInView: View {
                     .clipShape(.rect(cornerRadius: 10))
                 
                 Button {
-                    
+                    Task {
+                        do {
+                            try await viewModel.signIn()
+                            showSignUpView = false
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
                 } label: {
                     Text("Sign in")
                         .font(.headline)
@@ -43,5 +51,5 @@ struct SignInView: View {
 }
 
 #Preview {
-    SignInView()
+    SignInView(showSignUpView: .constant(false))
 }

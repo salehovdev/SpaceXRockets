@@ -21,4 +21,12 @@ final class AuthenticationViewModel: ObservableObject {
         try await AuthenticationManager.shared.signUp(email: email, password: password)
         
     }
+    
+    func signIn() async throws {
+        guard !email.isEmpty, !password.isEmpty else {
+            return
+        }
+        
+        try await AuthenticationManager.shared.signIn(email: email, password: password)
+    }
 }
