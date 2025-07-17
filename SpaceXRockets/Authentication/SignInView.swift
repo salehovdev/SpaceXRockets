@@ -30,7 +30,12 @@ struct SignInView: View {
                     Task {
                         do {
                             try await viewModel.signIn()
-                            showSignUpView = false
+                            
+                            if let _ = try? AuthenticationManager.shared.getUser() {
+                                showSignUpView = false
+                            } else {
+                                print("Sign-in failed")
+                            }
                         } catch {
                             print(error.localizedDescription)
                         }
@@ -49,7 +54,12 @@ struct SignInView: View {
                     Task {
                         do {
                             try await viewModel.signInGoogle()
-                            showSignUpView = false
+                            
+                            if let _ = try? AuthenticationManager.shared.getUser() {
+                                showSignUpView = false
+                            } else {
+                                print("Google Sign-in failed")
+                            }
                         } catch {
                             print(error.localizedDescription)
                         }

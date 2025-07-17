@@ -28,7 +28,12 @@ struct SignUpView: View {
                     Task {
                         do {
                             try await viewModel.signUp()
-                            showSignUpView = false
+                            
+                            if let _ = try? AuthenticationManager.shared.getUser() {
+                                showSignUpView = false
+                            } else {
+                                print("Sign-up failed")
+                            }
                         } catch {
                             print(error.localizedDescription)
                         }
