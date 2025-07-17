@@ -13,6 +13,7 @@ final class Utilities {
     static let shared = Utilities()
     private init() { }
     
+    @MainActor
     func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
             return topViewController(controller: navigationController.visibleViewController)
