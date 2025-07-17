@@ -12,7 +12,7 @@ struct RootView: View {
     
     var body: some View {
         ZStack {
-            Text("Rocket's List View")
+            RocketsView()
         }
         .onAppear {
             let user = try? AuthenticationManager.shared.getUser()
