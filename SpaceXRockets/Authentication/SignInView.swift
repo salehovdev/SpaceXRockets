@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
 
 struct SignInView: View {
     @StateObject var viewModel = AuthenticationViewModel()
@@ -42,6 +44,8 @@ struct SignInView: View {
                         .background(.blue)
                         .clipShape(.rect(cornerRadius: 10))
                 }
+                
+                
                 
                 Spacer()
             }
