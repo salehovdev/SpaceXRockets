@@ -48,7 +48,7 @@ struct SignUpView: View {
                     Text("Do you have an account?")
                         .foregroundStyle(.gray)
                     NavigationLink {
-                        
+                        SignInView(showSignUpView: $showSignUpView)
                     } label: {
                         Text("Sign In")
                             .font(.headline)
