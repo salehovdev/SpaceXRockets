@@ -45,7 +45,16 @@ struct SignInView: View {
                         .clipShape(.rect(cornerRadius: 10))
                 }
                 
-                
+                GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(scheme: .dark, style: .icon)) {
+                    Task {
+                        do {
+                            try await viewModel.signInGoogle()
+                            showSignUpView = false
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                }
                 
                 Spacer()
             }

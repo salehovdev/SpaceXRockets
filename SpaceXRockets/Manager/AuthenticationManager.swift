@@ -33,4 +33,15 @@ final class AuthenticationManager {
         guard let user = Auth.auth().currentUser else { throw AuthError.userError }
         return UserDataModel(user: user)
     }
+    
+    @discardableResult
+    func signInWithGoogle(tokens: GoogleSignInResultModel) async throws -> UserDataModel {
+        let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
+        return try await signInWithCredential(credential: credential)
+    }
+    
+    func signInWithCredential(credential: AuthCredential) async throws -> UserDataModel {
+        let result = try await Auth.auth().signIn(with: credential)
+        return UserDataModel(user: result.user)
+    }
 }
