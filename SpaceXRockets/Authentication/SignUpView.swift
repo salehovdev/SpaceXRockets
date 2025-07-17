@@ -47,6 +47,7 @@ struct SignUpView: View {
                         .background(.blue)
                         .clipShape(.rect(cornerRadius: 10))
                 }
+                .disabled(viewModel.email.isEmpty || viewModel.password.isEmpty)
                 
                 HStack {
                     Spacer()

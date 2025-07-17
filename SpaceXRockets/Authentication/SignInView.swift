@@ -13,6 +13,8 @@ struct SignInView: View {
     @StateObject var viewModel = AuthenticationViewModel()
     @Binding var showSignUpView: Bool
     
+    @State private var showAlert = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -34,9 +36,10 @@ struct SignInView: View {
                             if let _ = try? AuthenticationManager.shared.getUser() {
                                 showSignUpView = false
                             } else {
-                                print("Sign-in failed")
+                                showAlert = true
                             }
                         } catch {
+                            showAlert = true
                             print(error.localizedDescription)
                         }
                     }
@@ -49,6 +52,11 @@ struct SignInView: View {
                         .background(.blue)
                         .clipShape(.rect(cornerRadius: 10))
                 }
+                .alert("Sign In Failed!", isPresented: $showAlert) {
+                            Button("OK", role: .cancel) { }
+                        } message: {
+                            Text("Email or password is incorrect!")
+                        }
                 
                 GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(scheme: .dark, style: .icon)) {
                     Task {
