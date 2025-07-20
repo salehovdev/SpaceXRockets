@@ -11,10 +11,22 @@ struct RocketsView: View {
     @StateObject var authViewModel = AuthenticationViewModel()
     @Binding var showSignUpView: Bool
     
+    @ObservedObject var rocketsViewModel: RocketsViewModel
+    
+    init(showSignUpView: Binding<Bool>) {
+        self.rocketsViewModel = RocketsViewModel()
+        self._showSignUpView = showSignUpView
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Rocket's List View")
+                List(rocketsViewModel.rockets) { rocket in
+                    Text(rocket.name)
+                }
+            }
+            .task {
+                await rocketsViewModel.downloadRockets()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
