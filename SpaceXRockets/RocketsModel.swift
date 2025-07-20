@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Rockets: Codable {
+struct Rockets: Identifiable, Codable {
+    let id: String
     let name: String
     let firstFlight: String
     let successRatePct: Int
@@ -16,7 +17,7 @@ struct Rockets: Codable {
     let diameter: Diameter
     
     enum CodingKeys: String, CodingKey {
-        case name, height, mass, diameter
+        case name, height, mass, diameter, id
         case firstFlight = "first_flight"
         case successRatePct = "success_rate_pct"
     }
