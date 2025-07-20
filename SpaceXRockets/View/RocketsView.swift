@@ -22,7 +22,7 @@ struct RocketsView: View {
         NavigationStack {
             VStack {
                 List(rocketsViewModel.rockets) { rocket in
-                    Text(rocket.name)
+                    RocketsRowView(rocket: rocket)
                 }
             }
             .task {
