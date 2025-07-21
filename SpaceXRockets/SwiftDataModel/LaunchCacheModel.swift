@@ -30,4 +30,22 @@ class LaunchCacheModel {
         self.articleURL = launch.links.article
         self.wikipediaURL = launch.links.wikipedia
     }
+    
+    func forAPIModel() -> Launches {
+        Launches(
+            id: id,
+            name: name,
+            details: details,
+            rocket: rocketId,
+            success: success,
+            dateLocal: dateLocal,
+            links:
+                Links(patch:
+                        Patch(
+                            small: "",
+                            large: patchURL),
+                      article: articleURL,
+                      wikipedia: wikipediaURL)
+        )
+    }
 }
