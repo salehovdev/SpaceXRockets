@@ -26,4 +26,15 @@ class RocketCacheModel {
         self.diameter = rocket.diameter.meters
         self.mass = rocket.mass.kg
     }
+    
+    func forAPIModel() -> Rockets {
+        Rockets(
+            id: id,
+            name: name,
+            firstFlight: firstFlight,
+            successRatePct: successRatePct,
+            mass: Mass(kg: mass, lb: 0),
+            height: Diameter(meters: height, feet: nil),
+            diameter: Diameter(meters: diameter, feet: nil))
+    }
 }
