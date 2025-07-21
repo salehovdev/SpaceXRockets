@@ -18,11 +18,20 @@ struct LaunchesView: View {
     }
     
     var body: some View {
-        List(viewModel.filteredLaunches(for: rocketId)) { launch in
-            Text(launch.name)
-        }
-        .task {
-            await viewModel.downloadLaunches()
+        NavigationStack {
+            List(viewModel.filteredLaunches(for: rocketId)) { launch in
+                NavigationLink {
+                    LaunchDetailView()
+                } label: {
+                    Text(launch.name)
+                }
+            }
+            .navigationTitle("\(viewModel.rockets.first(where: { $0.id == rocketId })?.name ?? "Rocket")")
+            .navigationBarTitleDisplayMode(.inline)
+            .task {
+                await viewModel.downloadLaunches()
+                await viewModel.downloadRockets()
+            }
         }
     }
 }
