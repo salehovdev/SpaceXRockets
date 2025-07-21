@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct LaunchesView: View {
     @ObservedObject var viewModel: RocketsViewModel
@@ -16,6 +17,8 @@ struct LaunchesView: View {
         self.viewModel = RocketsViewModel()
         self.rocketId = rocketId
     }
+    
+    @Environment(\.modelContext) private var modelContext
     
     var body: some View {
         NavigationStack {
@@ -29,8 +32,8 @@ struct LaunchesView: View {
             .navigationTitle("\(viewModel.rockets.first(where: { $0.id == rocketId })?.name ?? "Rocket")")
             .navigationBarTitleDisplayMode(.inline)
             .task {
-                await viewModel.downloadLaunches()
-                await viewModel.downloadRockets()
+                await viewModel.downloadLaunches(using: modelContext)
+                await viewModel.downloadRockets(using: modelContext)
             }
         }
     }

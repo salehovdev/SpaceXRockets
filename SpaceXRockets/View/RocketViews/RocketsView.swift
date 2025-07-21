@@ -13,6 +13,8 @@ struct RocketsView: View {
     
     @ObservedObject var rocketsViewModel: RocketsViewModel
     
+    @Environment(\.modelContext) private var modelContext
+    
     init(showSignUpView: Binding<Bool>) {
         self.rocketsViewModel = RocketsViewModel()
         self._showSignUpView = showSignUpView
@@ -30,7 +32,7 @@ struct RocketsView: View {
                 }
             }
             .task {
-                await rocketsViewModel.downloadRockets()
+                await rocketsViewModel.downloadRockets(using: modelContext)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

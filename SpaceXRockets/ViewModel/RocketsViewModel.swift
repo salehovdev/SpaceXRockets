@@ -28,6 +28,9 @@ class RocketsViewModel: ObservableObject {
             try modelContext.save()
         } catch {
             print(error.localizedDescription)
+            
+            let cachedData = try? modelContext.fetch(FetchDescriptor<RocketCacheModel>())
+            self.rockets = cachedData?.map { $0.forAPIModel() } ?? []
         }
     }
     
@@ -45,6 +48,9 @@ class RocketsViewModel: ObservableObject {
             try modelContext.save()
         } catch {
             print(error.localizedDescription)
+            
+            let cachedData = try? modelContext.fetch(FetchDescriptor<LaunchCacheModel>())
+            self.launches = cachedData?.map { $0.forAPIModel() } ?? []
         }
     }
     
