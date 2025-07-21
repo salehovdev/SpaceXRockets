@@ -21,7 +21,7 @@ struct LaunchesView: View {
         NavigationStack {
             List(viewModel.filteredLaunches(for: rocketId)) { launch in
                 NavigationLink {
-                    LaunchDetailView()
+                    LaunchDetailView(launch: launch)
                 } label: {
                     Text(launch.name)
                 }

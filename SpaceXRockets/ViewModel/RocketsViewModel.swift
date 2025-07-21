@@ -28,7 +28,6 @@ class RocketsViewModel: ObservableObject {
         do {
             let launches: [Launches] = try await manager.fetchData(URLs.launchUrl)
             self.launches = launches
-            print("Fetched \(launches.count) launches")
         } catch {
             print(error.localizedDescription)
         }
