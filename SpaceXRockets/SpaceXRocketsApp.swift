@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 import Firebase
 
 @main
@@ -19,5 +20,6 @@ struct SpaceXRocketsApp: App {
         WindowGroup {
             RootView()
         }
+        .modelContainer(for: [RocketCacheModel.self, LaunchCacheModel.self])
     }
 }
