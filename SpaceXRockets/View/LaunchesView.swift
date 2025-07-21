@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct LaunchesView: View {
+    @ObservedObject var viewModel: RocketsViewModel
+    
+    init() {
+        self.viewModel = RocketsViewModel()
+    }
+    
     var body: some View {
-        Text("Launches")
+        List(viewModel.launches) { launch in
+            Text(launch.name)
+        }
+        .task {
+            await viewModel.downloadLaunches()
+        }
     }
 }
 
