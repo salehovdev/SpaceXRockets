@@ -10,12 +10,15 @@ import SwiftUI
 struct LaunchesView: View {
     @ObservedObject var viewModel: RocketsViewModel
     
-    init() {
+    let rocketId: String
+    
+    init(rocketId: String) {
         self.viewModel = RocketsViewModel()
+        self.rocketId = rocketId
     }
     
     var body: some View {
-        List(viewModel.launches) { launch in
+        List(viewModel.filteredLaunches(for: rocketId)) { launch in
             Text(launch.name)
         }
         .task {
@@ -25,5 +28,5 @@ struct LaunchesView: View {
 }
 
 #Preview {
-    LaunchesView()
+    LaunchesView(rocketId: "5e9d0d95eda69955f709d1eb")
 }

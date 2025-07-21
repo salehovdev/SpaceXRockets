@@ -23,7 +23,7 @@ struct RocketsView: View {
             VStack {
                 List(rocketsViewModel.rockets) { rocket in
                     NavigationLink {
-                        LaunchesView()
+                        LaunchesView(rocketId: rocket.id)
                     } label: {
                         RocketsRowView(rocket: rocket)
                     }

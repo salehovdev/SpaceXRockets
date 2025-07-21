@@ -33,4 +33,8 @@ class RocketsViewModel: ObservableObject {
             print(error.localizedDescription)
         }
     }
+    
+    func filteredLaunches(for rocketId: String) -> [Launches] {
+        return launches.filter({ $0.rocket == rocketId })
+    }
 }
